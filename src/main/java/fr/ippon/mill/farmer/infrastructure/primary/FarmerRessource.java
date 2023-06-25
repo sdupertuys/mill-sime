@@ -28,7 +28,7 @@ public class FarmerRessource {
     }
 
     @PostMapping
-    public ResponseEntity<Void> create(@RequestBody@Valid CreateFarmerRequest newFarmer) {
+    public ResponseEntity<Void> create(@RequestBody @Valid CreateFarmerRequest newFarmer) {
         Farmer farmer = Farmer.create(newFarmer.getFirstName(), newFarmer.getLastName(), newFarmer.getEmail(), newFarmer.getPhoneNumber());
         try {
             String reference = farmerService.register(farmer);
