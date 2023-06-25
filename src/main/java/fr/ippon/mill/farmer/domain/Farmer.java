@@ -1,5 +1,8 @@
 package fr.ippon.mill.farmer.domain;
 
+import fr.ippon.mill.error.domain.Assert;
+
+import java.util.Objects;
 import java.util.UUID;
 
 public class Farmer {
@@ -15,6 +18,11 @@ public class Farmer {
     }
 
     public Farmer(UUID reference, String firstName, String lastName, String email, String phoneNumber) {
+        Assert.assertNotNull("reference",reference);
+        Assert.assertNotBlank("firstName",firstName);
+        Assert.assertNotBlank("lastName",lastName);
+        Assert.assertNotBlank("email",email);
+        Assert.assertNotBlank("phoneNumber",phoneNumber);
         this.reference = reference;
         this.firstName = firstName;
         this.lastName = lastName;

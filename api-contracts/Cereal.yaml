@@ -32,7 +32,7 @@ components:
       type: object
       required:
         - cereal
-        - farmerEmail
+        - farmerId
         - harvestDay
         - quantity
       properties:
@@ -42,6 +42,7 @@ components:
         farmerId:
           type: string
           description: Identifier of the farmer providing the cereal
+          example: f8351282-0c2b-47eb-a0eb-d663fe989376
         harvestDay:
           type: string
           format: date
