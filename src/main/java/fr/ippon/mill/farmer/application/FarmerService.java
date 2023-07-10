@@ -25,4 +25,8 @@ public class FarmerService {
         this.farmerRepository.save(farmer);
         return farmer.getReference().toString();
     }
+
+    public boolean exist(String farmerId) {
+        return farmerRepository.exists(farmerId);
+    }
 }

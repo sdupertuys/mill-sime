@@ -50,4 +50,21 @@ class CerealRessourceIT {
                 // Then
                 .andExpect(status().isOk());
     }
+
+    @Test
+    void should_respond_404_when_farmer_not_found() throws Exception {
+        mockMvc.perform(post("/api/cereals")
+                        .contentType(MediaType.APPLICATION_JSON)
+                        .characterEncoding(StandardCharsets.UTF_8)
+                        .content("""
+                                {
+                                  "cereal": "WHEAT",
+                                  "farmerId": "a046b054-1eae-451d-afa1-8b3202f1902a",
+                                  "harvestDay": "2022-11-21",
+                                  "quantity": 7.23
+                                }
+                                """))
+                // Then
+                .andExpect(status().isNotFound());
+    }
 }
